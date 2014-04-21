@@ -1,5 +1,8 @@
 <h2>I AMA Homepage</h2>
+
 <%= link_to "Add a link", new_link_path %>
+
+
 
 
 <ul>
@@ -16,9 +19,5 @@
 	 Down Votes: <%= link.votes.where(:up => false).count %>
   <% end %>
 </ul>
-
-hahaha
-  	
-<%= render @links %>
 <%= will_paginate @links %>
 

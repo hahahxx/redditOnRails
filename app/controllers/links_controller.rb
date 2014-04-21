@@ -10,9 +10,9 @@ class LinksController < ApplicationController
 
   def create
 		@link = Link.new(link_params)
-
+    @comment = Comment.new
 		respond_to do |format|
-  			if @link.save
+  		if @link.save
    		 		format.html { render :action => "show" }
    		 		format.json { render :json => @link }
           
