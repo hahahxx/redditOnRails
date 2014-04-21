@@ -13,6 +13,13 @@
   <%= @link.url %>
 </p>
 
+<h2>Comments:<h2>
+
+  <% @link.comments.each do |comment| %>
+    <ul><li><%= comment.message %></li></ul>
+  <% end %>
+
+
 <%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
