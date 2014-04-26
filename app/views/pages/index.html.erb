@@ -1,11 +1,24 @@
 <h2>I AMA Homepage</h2>
 
+<%if !current_user.nil?%>
 <%= link_to "Add a link", new_link_path %>
+<div class="row">
+    <aside class="span4">
+      <section>
+        <h1>
+          <%= current_user.email %>
+        </h1>
+        
+        <span>
+          <%= pluralize(current_user.links.count, "links") %>
+        </span>
+        <span>
+          <%= pluralize(current_user.comments.count, "comments") %>
+        </span>
+      </section>
+    </aside>
 
-
-
-
-<ul>
+<ul class = "span8">
   <% @links.each do |link| %>
     <li>  <%= link_to link.title, link.url %> </li>
      <%= link_to "comments", link %> 
@@ -18,6 +31,20 @@
      Up Votes: <%= link.votes.where(:up => true).count %>
 	 Down Votes: <%= link.votes.where(:up => false).count %>
   <% end %>
+  <%= will_paginate @links %>
 </ul>
-<%= will_paginate @links %>
+
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the Xinxin's page</h1>
+
+    <h2>
+      Cool information shared from places all over the world!
+    </h2>
+
+    <%= link_to "Sign up now!", new_user_registration_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+</div>
+<%end%>
 

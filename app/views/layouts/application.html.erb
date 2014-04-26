@@ -3,35 +3,10 @@
   <head>
     <meta charset="utf-8">
   <title>RedditOnRails</title>
-
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-
-
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-
-    <script src="http://heroku.github.com/template-app-bootstrap/jquery-1.7.1.min.js"></script>
-    <script src="http://heroku.github.com/template-app-bootstrap/jquery.replacetext.min.js"></script>
-
-    <!--
-      IMPORTANT:
-      This is Heroku specific styling. Remove to customize.
-    -->
-    <link href="http://heroku.github.com/template-app-bootstrap/heroku.css" rel="stylesheet">
-    <!-- /// -->
-
-    <!--
-      IMPORTANT:
-      To do the replacement  example for the real name application
-    -->
-    <script src="http://heroku.github.com/template-app-bootstrap/heroku.js"></script>
-    <!-- /// -->
-
-
   </head>
 
   <body>
@@ -47,7 +22,7 @@
               <%# user is not logged in, show signup and login links %>
               <% else %>
                 <li><%= link_to 'Sign In', new_user_session_path %></li> |
-                <li><%= link_to 'Register Now!', new_user_registration_path %></li>
+                <li><%= link_to 'Sign up', new_user_registration_path %></li>
               <% end %>
               <li>
 
@@ -59,19 +34,12 @@
                 </li>
             </ul>
           </div>
-          <!--
-            IMPORTANT:
-            This is Heroku specific markup. Remove to customize.
-          -->
           <a href="/" class="brand" id="heroku">by <strong>Xinxin</strong></a>
-          <!-- /// -->
         </div>
       </div>
     </div>
 
     <div class="container" id="getting-started">
-      <div class="row">
-        <div class="span6 offset2">
         <div class="page-header"></div>
 
           <% [:notice, :error, :alert].each do |level| %>
@@ -84,8 +52,7 @@
           <% end %>
 
           <%= yield %>
-        </div>
-      </div>
+      
     </div>
     <%= javascript_include_tag "application" %>
   </body>

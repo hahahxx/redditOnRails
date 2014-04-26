@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     make_users
     make_links
+    make_comments
   end
 end
 
