@@ -1,0 +1,7 @@
+$('#my-posts').append('<%= j render @links %>');
+<% if @links.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @links %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>
