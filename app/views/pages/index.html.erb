@@ -17,21 +17,13 @@
         </span>
       </section>
     </aside>
-
 <ul class = "span8">
-  <% @links.each do |link| %>
-    <li>  <%= link_to link.title, link.url %> </li>
-     <%= link_to "comments", link %> 
-     <% if current_user && current_user.votes.where(:link_id => link.id, :up => true).present? %>
-    	*
-  	 <% else %>
-     	<%= link_to "+", votes_path(:vote => {:link_id => link.id, :up => true}), :method => :post %>
-     <% end %>
-     <%= link_to "-", votes_path(:vote => {:link_id => link.id, :up => false}), :method => :post %>
-     Up Votes: <%= link.votes.where(:up => true).count %>
-	 Down Votes: <%= link.votes.where(:up => false).count %>
-  <% end %>
-  <%= will_paginate @links %>
+  <div id="my-posts">
+    <%= render @links %>
+  </div>
+  <div id="infinite-scrolling">
+    <%= will_paginate @links %>
+  </div>
 </ul>
 
 <% else %>
