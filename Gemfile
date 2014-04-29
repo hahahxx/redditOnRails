@@ -6,7 +6,6 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 gem 'texticle', :require => 'texticle/rails'
-gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -38,6 +37,11 @@ gem 'devise'
 gem 'faker'
 
 group :test, :development do
+  gem 'pg'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
   gem "rspec"
   gem "rspec-rails"
   gem 'factory_girl_rails'
