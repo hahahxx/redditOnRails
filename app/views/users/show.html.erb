@@ -1,0 +1,24 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h3>
+        <%= @user.email %>
+      </h3>
+    </section>
+    <section>
+      
+    </section>
+  </aside>
+  <div class="span8">
+    <%if !current_user.nil? %>
+    	<% if @user.links.any? %>
+      		<h3>Links (<%= @user.links.count %>)</h3>
+      			<ol>
+        			<% @user.links.each do |link| %>
+        				<%= link.url%>
+        			<%end%>
+      			</ol>
+      	<%end%>
+    <% end %>
+  </div>
+</div>
