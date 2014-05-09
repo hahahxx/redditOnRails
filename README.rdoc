@@ -3,26 +3,17 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Install
 
-* Ruby version
+Once on your local machine you will need to navigate to the project directory and run:
 
-* System dependencies
+$ bundle install
+This might take awhile, afterwards you will need to run:
 
-* Configuration
+$ rake db:create
+$ rake db:migrate
+$ rake fake:data
+This will create a Users table and a Products table. The MVCr (Model View Controller (r)outes) for users has already been created. Then start up a server
 
-* Database creation
+$ rails server
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
